@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk')
 const args = process.argv
 const rl = require('readline');
-
+const path = require('path');
+const fs = require('fs');
 const low = require('lowdb')
+const chalk = require('chalk');
+const figlet = require('figlet');
 const FileSync = require('lowdb/adapters/FileSync')
-
-
-
 const commands = ['create', 'get', 'delete', 'help'];
 
 
@@ -16,6 +15,9 @@ const commands = ['create', 'get', 'delete', 'help'];
 // usage represents the help guide
 const usage = function() {
   const usageText = `
+  ${chalk.yellow(
+        figlet.textSync('Kpamo', { horizontalLayout: 'full' })
+  )}
   Kpamo is a simple document based database.
 
   usage:
@@ -27,8 +29,7 @@ const usage = function() {
     get:     used to retrieve your database
     delete:  used to delete a database
     help:    used to print the usage guide
-  `
-
+  `;
   console.log(usageText)
 }
 
@@ -44,8 +45,7 @@ if (args.length > 3) {
   usage()
 }
 
-if (commands.indexOf(args[2]) == -1) {
-  errorLog('invalid command passed')
+if (commands.indexOf(args[2]) === -1) {
   usage()
 }
 
@@ -57,11 +57,12 @@ switch(args[2]) {
     newDatabase().then(r => {});
     break
   case 'get':
+    listDB().then(r => {});
     break
-  case 'complete':
+  case 'delete':
+    deleteDB().then(r => {});
     break
   default:
-    errorLog('invalid command passed')
     usage()
 }
 
@@ -86,8 +87,39 @@ async function newDatabase() {
   await createFile(create);
 }
 
+async function listDB(){
+  const directoryPath = path.join(__dirname, 'db');
+  fs.readdir(directoryPath,  (err, files) => {
+    if (err) {
+      return console.log('Unable to scan directory: ' + err);
+    }
+    files.forEach(function (file) {
+      console.log(file);
+    });
+  });
+}
+
 async function createFile(name){
   const adapter = new FileSync(`db/${name}.json`)
   const db = low(adapter);
   db.defaults({ todos: []}).write()
+  console.log(`${name} created successfully`);
+  process.exit(1);
+}
+
+async function deleteDB(){
+  const question = chalk.blue('Type in your database name you would like to delete : ')
+  let create = await prompt(question);
+  await deleteFile(create);
+}
+
+async function deleteFile(name){
+  let pathToFile =  path.join(__dirname, `db/${name}.json`);
+  fs.unlink(pathToFile, function(err) {
+    if (err) {
+      console.log(chalk.red(err))
+    } else {
+      console.log(chalk.green("Successfully deleted the file."))
+    }
+  })
 }
