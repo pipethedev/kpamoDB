@@ -20,11 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb5f421c-26ec-4c57-b8c7-f8c302424dec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/pamo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/usage.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/usage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/pamo" beforeDir="false" afterPath="$PROJECT_DIR$/bin/pamo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/users.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.4" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.12" />
@@ -67,7 +73,7 @@
       <updated>1620580571784</updated>
       <workItem from="1620580578659" duration="9885000" />
       <workItem from="1620591426782" duration="1862000" />
-      <workItem from="1620593346913" duration="427000" />
+      <workItem from="1620593346913" duration="7894000" />
     </task>
     <servers />
   </component>
@@ -98,5 +104,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1620592194531" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1620595199649">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1620595199649" />
   </component>
 </project>

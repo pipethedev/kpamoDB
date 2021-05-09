@@ -9,17 +9,16 @@ const figlet = require('figlet');
 const FileSync = require('lowdb/adapters/FileSync')
 const commands = ['create', 'get', 'delete', 'help'];
 const Usage  = require('../actions/usage');
-
+const args = process.argv;
 let get = new Usage();
-
-
 
 // usage represents the help guide
     const usage = function() {
         const usageText = `
-  ${chalk.yellow(
+        ${chalk.yellow(
             figlet.textSync('Kpamo', { horizontalLayout: 'full' })
         )}
+        
   Kpamo is a simple document based database.
 
   usage:
@@ -53,8 +52,8 @@ let get = new Usage();
 
     switch(args[2]) {
         case 'help':
+            get.remove('users', 2);
             //usage()
-            get.readFile('users');
             break
         case 'create':
             newDatabase().then(r => {});
@@ -105,11 +104,14 @@ let get = new Usage();
     }
 
     async function createFile(name){
-        const adapter = new FileSync(`db/${name}.json`)
-        const db = low(adapter);
-        db.defaults({ todos: []}).write()
-        console.log(`${name} created successfully`);
-        process.exit(1);
+        let dir = './db';
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+        fs.appendFile(`./tmp/${name}.json`, "[]",  (err) => {
+            if (err) console.log(chalk.red(err));
+            console.log(`${name} document db created successfully`);
+        });
     }
 
     async function deleteDB(){
