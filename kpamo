@@ -60,7 +60,9 @@ switch(args[2]) {
     listDB().then(r => {});
     break
   case 'delete':
-    deleteDB().then(r => {});
+    deleteDB().then(r => {
+
+    })
     break
   default:
     usage()
@@ -94,7 +96,7 @@ async function listDB(){
       return console.log('Unable to scan directory: ' + err);
     }
     files.forEach(function (file) {
-      console.log(file);
+      console.log(file + '✔');
     });
   });
 }
@@ -118,8 +120,10 @@ async function deleteFile(name){
   fs.unlink(pathToFile, function(err) {
     if (err) {
       console.log(chalk.red(err))
+      process.exit(1);
     } else {
-      console.log(chalk.green("Successfully deleted the file."))
+      console.log(chalk.green('Database successfully deleted'))
+      process.exit(1);
     }
   })
 }
