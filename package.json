@@ -2,13 +2,17 @@
   "name": "kpamo",
   "version": "1.0.0",
   "description": "",
-  "main": "start.js",
+  "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Muritala David (https://muritaladavid.herokuapp.com)",
   "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "pamo": "./bin/index.js"
+  },
   "dependencies": {
     "chalk": "^4.1.1",
     "figlet": "^1.5.0",
