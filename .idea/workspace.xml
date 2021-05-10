@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb5f421c-26ec-4c57-b8c7-f8c302424dec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/usage.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/usage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/pamo" beforeDir="false" afterPath="$PROJECT_DIR$/bin/pamo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +51,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.4" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.12" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -67,7 +70,8 @@
       <updated>1620580571784</updated>
       <workItem from="1620580578659" duration="9885000" />
       <workItem from="1620591426782" duration="1862000" />
-      <workItem from="1620593346913" duration="8147000" />
+      <workItem from="1620593346913" duration="10231000" />
+      <workItem from="1620666023667" duration="9793000" />
     </task>
     <servers />
   </component>
@@ -98,9 +102,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1620592194531" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1620595199649">
+    <state x="339" y="172" key="run.anything.popup" timestamp="1620672126427">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1620595199649" />
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1620672126427" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1620669073655">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1620669073655" />
   </component>
 </project>

@@ -52,8 +52,8 @@ let get = new Usage();
 
     switch(args[2]) {
         case 'help':
-            get.remove('users', 2);
-            //usage()
+           // get.remove('users', 2);
+            get.find('users');
             break
         case 'create':
             newDatabase().then(r => {});
@@ -104,7 +104,7 @@ let get = new Usage();
     }
 
     async function createFile(name){
-        let dir = './db';
+        let dir = './tmp';
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
@@ -121,7 +121,7 @@ let get = new Usage();
     }
 
     async function deleteFile(name){
-        let pathToFile =  path.join(__dirname, `db/${name}.json`);
+        let pathToFile =  path.join(process.cwd(), `tmp/${name}.json`);
         fs.unlink(pathToFile, function(err) {
             if (err) {
                 console.log(chalk.red(err))
