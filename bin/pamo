@@ -8,21 +8,22 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 const FileSync = require('lowdb/adapters/FileSync')
 const commands = ['create', 'get', 'delete', 'help'];
-const Usage  = require('../actions/usage');
+const Model  = require('../actions/usage');
+const hidefile = require('hidefile');
 const args = process.argv;
-let get = new Usage();
+let get = new Model();
 
 // usage represents the help guide
     const usage = function() {
         const usageText = `
         ${chalk.yellow(
-            figlet.textSync('Kpamo', { horizontalLayout: 'full' })
+            figlet.textSync('pamo', { horizontalLayout: 'full' })
         )}
         
   Kpamo is a simple document based database.
 
   usage:
-    kpamo <command>
+    ✌ pamo <command>
 
     commands can be:
 
@@ -36,8 +37,7 @@ let get = new Usage();
 
 // used to log errors to the console in red color
     function errorLog(error) {
-        const eLog = chalk.red(error)
-        console.log(eLog)
+        console.log(chalk.red(error))
     }
 
 // we make sure the length of the arguments is exactly three
@@ -52,8 +52,7 @@ let get = new Usage();
 
     switch(args[2]) {
         case 'help':
-           // get.remove('users', 2);
-            get.find('users');
+            usage();
             break
         case 'create':
             newDatabase().then(r => {});
@@ -67,6 +66,7 @@ let get = new Usage();
             })
             break
         default:
+            errorLog('invalid command passed')
             usage()
     }
 
@@ -92,13 +92,13 @@ let get = new Usage();
     }
 
     async function listDB(){
-        const directoryPath = path.join(__dirname, 'db');
+        let directoryPath =  path.join(process.cwd(), `/.tmp`);
         fs.readdir(directoryPath,  (err, files) => {
             if (err) {
                 return console.log('Unable to scan directory: ' + err);
             }
             files.forEach(function (file) {
-                console.log(file + '✔');
+                console.log(file.replace(/\.[^/.]+$/, "") + ' ' + '✔');
             });
         });
     }
@@ -124,7 +124,7 @@ let get = new Usage();
         let pathToFile =  path.join(process.cwd(), `tmp/${name}.json`);
         fs.unlink(pathToFile, function(err) {
             if (err) {
-                console.log(chalk.red(err))
+                console.log(chalk.red(`No db document such as ${name}`))
                 process.exit(1);
             } else {
                 console.log(chalk.green('Database successfully deleted'))

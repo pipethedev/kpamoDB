@@ -1,13 +1,22 @@
+"use strict";
+
 const chalk =  require("chalk");
 const fs = require('fs');
 const path = require('path');
+const csvwriter = require('csv-writer');
+const homeDir = require('os').homedir();
 
-module.exports =  class Model {
-
-    constructor(name, id, data) {
-        this.name = name;
-        this.id = id;
-        this.data = data;
+class Model {
+    //convert file to csv
+    async toCsv(name){
+        let pathToFile =  path.join(process.cwd(), `tmp/${name}.json`);
+        if (fs.existsSync(pathToFile)) {
+            let file = fs.readFileSync(pathToFile, 'utf8');
+            let jsonData = JSON.parse(file);
+            await jsonToCSV(name, jsonData);
+        }else{
+            console.log(chalk.red(`The db document ${name} does not exist`))
+        }
     }
 
     //fetches all objects in document
@@ -46,7 +55,11 @@ module.exports =  class Model {
             let file = fs.readFileSync(pathToFile, 'utf8');
             let gotten = JSON.parse(file);
             let lastItem = gotten[gotten.length - 1]
-            data.id = lastItem.id + 1;
+            if(lastItem){
+                data.id = lastItem.id + 1;
+            }else{
+                data.id = 1;
+            }
             newFile.push(data)
             fs.writeFile(`tmp/${name}.json`, JSON.stringify(newFile), (err) => {
                 if (err) console.log(chalk.red(err));
@@ -111,3 +124,21 @@ function sortArray(array){
     return array;
 }
 
+async function jsonToCSV (name, data) {
+    let path = `${homeDir}/Downloads/${name}.csv`;
+    const csvWriter = await csvwriter.createObjectCsvWriter({
+        // Output csv file name is geek_data
+        path,
+        header: [
+            // Title of the columns (column_names)
+            {id: 'col1', title: 'COL1'},
+            {id: 'col2', title: 'COL2'},
+            {id: 'col3', title: 'COL3'},
+        ]
+    });
+    await csvWriter
+        .writeRecords(data)
+        .then(()=> console.log(chalk.green(`Success, check downloads to get your ${name}.csv file`)));
+}
+
+module.exports = Model;

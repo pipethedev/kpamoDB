@@ -1,2 +1,3 @@
-const Usage  = require('./actions/usage');
-module.exports = Usage;
+const Model  = require('./actions/usage');
+
+module.exports = Model;

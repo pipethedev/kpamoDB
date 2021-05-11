@@ -1,10 +1,9 @@
 {
   "name": "pamo",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
-  "main": "src/index.js",
+  "main": "./index.js",
   "scripts": {
-    "start": "node ./bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
@@ -24,9 +23,11 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
+    "csv-writer": "^1.6.0",
     "esm": "^3.2.25",
     "figlet": "^1.5.0",
     "fs": "0.0.1-security",
+    "hidefile": "^3.0.0",
     "lowdb": "^1.0.0",
     "path": "^0.12.7"
   }
