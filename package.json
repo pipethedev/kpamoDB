@@ -1,9 +1,10 @@
 {
   "name": "pamo",
   "version": "1.0.3",
-  "description": "",
+  "description": "A minimal document based database for small projects",
   "main": "./index.js",
   "scripts": {
+    "start": "node ./bin/pamo help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
@@ -27,9 +28,9 @@
     "delay": "^5.0.0",
     "esm": "^3.2.25",
     "figlet": "^1.5.0",
+    "file-encryptor": "^0.1.1",
     "fs": "0.0.1-security",
     "hidefile": "^3.0.0",
-    "lowdb": "^1.0.0",
     "path": "^0.12.7"
   }
 }

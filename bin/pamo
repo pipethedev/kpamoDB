@@ -3,10 +3,10 @@
 const rl = require('readline');
 const path = require('path');
 const fs = require('fs');
-const low = require('lowdb')
 const chalk = require('chalk');
 const figlet = require('figlet');
 const delay = require('delay');
+const encryptor = require('file-encryptor');
 const commands = ['create', 'get', 'delete', 'help'];
 const Model  = require('../actions/usage');
 const hidefile = require('hidefile');
@@ -104,15 +104,21 @@ let get = new Model();
     }
 
     async function createFile(name){
-        let dir = './tmp';
+        let dir = path.join(process.cwd(), `tmp/`);
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
+            await delay(4000);
+            hidefile.hideSync(dir);
         }
-        await delay(4000);
-        hidefile.hideSync('tmp');
         fs.appendFile(`./.tmp/${name}.json`, "[]",  (err) => {
             if (err) console.log(chalk.red(err));
             console.log(`${name} document db created successfully`);
+        });
+        let directory = path.join(process.cwd(), `.tmp/${name}.json`);
+        let key = 'My Super Secret Key';
+        await delay(4000);
+        encryptor.encryptFile(directory, `${path.join(process.cwd(), `.tmp/`)}/${name}.dat`, key, function(err) {
+            console.log(`${name} document encrypted file created successfully`);
         });
     }
 
