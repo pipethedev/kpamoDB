@@ -27,8 +27,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Pamo][product-screenshot]](https://example.com)
-
 Pamo was just a simple idea created to use in a minimal project like a user todo application, a check list....
 Where developers don't have to import a heavy database system (mongodb, sql) into their projects, it's prettier easy to set up
 
@@ -79,8 +77,6 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
