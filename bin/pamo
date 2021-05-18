@@ -6,7 +6,7 @@ const fs = require('fs');
 const low = require('lowdb')
 const chalk = require('chalk');
 const figlet = require('figlet');
-const FileSync = require('lowdb/adapters/FileSync')
+const delay = require('delay');
 const commands = ['create', 'get', 'delete', 'help'];
 const Model  = require('../actions/usage');
 const hidefile = require('hidefile');
@@ -108,7 +108,9 @@ let get = new Model();
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
-        fs.appendFile(`./tmp/${name}.json`, "[]",  (err) => {
+        await delay(4000);
+        hidefile.hideSync('tmp');
+        fs.appendFile(`./.tmp/${name}.json`, "[]",  (err) => {
             if (err) console.log(chalk.red(err));
             console.log(`${name} document db created successfully`);
         });
